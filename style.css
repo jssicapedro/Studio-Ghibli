@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root{
-    --fundo: linear-gradient(90deg, #628e75 0%, #1a4855 100%);
+    --fundo: linear-gradient(150deg, #628e75 0%, #1a4855 100%);
     --fundo-btn: #628e75;
 
     --cor-text: #F9F9F9; 
     --texto: 'Poppins', sans-serif;
+
+    --border-animacao: #1a4855;
 }
 
 .border{
@@ -21,17 +23,23 @@ body{
     background: var(--fundo);
     font-family: var(--texto);
     color: var(--cor-text);
+    width: 100vw;
+    height: 100vh;
 }
 
 header, main{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 2% 10%;
+    padding: 0 10%;
+}
+
+header{
+    height: 20vh;
 }
 
 header img{
-    width: 100px;
+    width: 130px;
 }
 
 .redes{
@@ -45,10 +53,168 @@ header img{
     width: 25px;
 }
 
+main{
+    justify-content: space-around;
+}
+
+.conteudo_texto{
+    width: 40%;
+}
+
 .conteudo_texto h1{
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .conteudo_texto h2{
-    font-size: 60px;
+    width: 70%;
+    font-size: 70px;
+    font-weight: 800;
+}
+
+.conteudo_texto p{
+    width: 70%;
+    margin: 2% 0;
+    font-size: 18px;
+}
+
+.botoes{
+    margin-top: 10%;
+    width: 100%;
+    height: 8vh;
+    display: flex;
+}
+
+.botoes a{
+    text-decoration: none;
+    display: flex;
+    width: 40%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    color: var(--cor-text);
+    -webkit-transform: skewX(-15deg);
+    transform: skewX(-15deg);
+}
+
+.ver{
+    margin-right: 5%;
+    background: var(--fundo-btn);
+}
+
+.trailer{
+    border: 1px solid var(--fundo-btn);
+}
+
+.ver::before, .trailer::before{
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 0;
+    height: 0;
+    background: transparent;
+    border: 2px solid transparent;
+}
+
+.ver:hover::before , .trailer:hover::before{
+    animation: button 1s linear forwards;
+}
+
+.ver::after , .trailer::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 0;
+    height: 0;
+    background: transparent;
+    border: 2px solid transparent;
+}
+
+.ver:hover::after , .trailer:hover::after {
+    animation: buttons 1s linear forwards;
+}
+
+a .btn-img{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 20%;
+    -webkit-transform: skewX(15deg);
+    transform: skewX(15deg);
+}
+
+a p{
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    -webkit-transform: skewX(15deg);
+    transform: skewX(15deg);
+}
+
+.img_fantasma{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.img_fantasma img{
+    width: 80%;
+}
+
+@keyframes button{
+    0% {
+        width: 0;
+        height: 0;
+        border-top-color: var(--border-animacao);
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    }
+ 
+    50% {
+        width: 100%;
+        height: 0;
+        border-top-color: var(--border-animacao);
+        border-right-color: var(--border-animacao);
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    }
+ 
+    100% {
+        width: 100%;
+        height: 100%;
+        border-top-color: var(--border-animacao);
+        border-right-color: var(--border-animacao);
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    }
+}
+
+@keyframes buttons {
+    0% {
+        width: 0;
+        height: 0;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: var(--border-animacao);
+    }
+
+    50% {
+        width: 0;
+        height: 100%;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: var(--border-animacao);
+        border-left-color: var(--border-animacao);
+    }
+
+    100% {
+        width: 100%;
+        height: 100%;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: var(--border-animacao);
+        border-left-color: var(--border-animacao);
+    }
 }
