@@ -23,19 +23,22 @@ body{
     background: var(--fundo);
     font-family: var(--texto);
     color: var(--cor-text);
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 }
 
 header, main{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 10%;
+    justify-content: space-around;
 }
 
 header{
-    height: 20vh;
+    width: 80%;
+    height: 10vh;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
 }
 
 header img{
@@ -54,11 +57,15 @@ header img{
 }
 
 main{
+    width: 80%;
+    height: 90vh;
+    display: flex;
+    margin: auto;
     justify-content: space-around;
 }
 
 .conteudo_texto{
-    width: 40%;
+    width: 60%;
 }
 
 .conteudo_texto h1{
@@ -117,7 +124,7 @@ main{
 }
 
 .ver:hover::before , .trailer:hover::before{
-    animation: button 1s linear forwards;
+    animation: button 0.8s linear forwards;
 }
 
 .ver::after , .trailer::after {
@@ -132,7 +139,7 @@ main{
 }
 
 .ver:hover::after , .trailer:hover::after {
-    animation: buttons 1s linear forwards;
+    animation: buttons 0.8s linear forwards;
 }
 
 a .btn-img{
@@ -153,12 +160,13 @@ a p{
 }
 
 .img_fantasma{
+    width: 40%;
     display: flex;
     justify-content: flex-end;
 }
 
 .img_fantasma img{
-    width: 80%;
+    width: 100%;
 }
 
 @keyframes button{
@@ -216,5 +224,81 @@ a p{
         border-right-color: transparent;
         border-bottom-color: var(--border-animacao);
         border-left-color: var(--border-animacao);
+    }
+}
+
+@media (max-width:1100px){
+    body{
+        overflow-x: hidden;
+    }
+    
+    header{
+        height: 10%;
+        padding: 5%;
+    }
+    
+    main{
+        height: 100%;
+        width: 80%;
+        flex-direction: column;
+        justify-content: normal;
+        margin-top: 5%;
+    }
+
+    .conteudo_texto, .img_fantasma{
+        width: 100%;
+    }
+
+    .conteudo_texto h1, .conteudo_texto h2, .conteudo_texto p, .botoes{
+        width: 100%;
+    }
+
+    .botoes, .img_fantasma{
+        justify-content: center;
+    }
+
+    .img_fantasma{
+        margin-top: 5%;
+    }
+
+    .img_fantasma img{
+        width: 80%;
+    }
+}
+
+@media (max-width:650px){
+    header{
+        height: 5vh;
+    }
+
+    main{
+        height: 90vh;
+    }
+
+    .botoes{
+        flex-direction: column;
+        width: 100%;
+        height: 15vh;
+        align-items: center;
+    }
+
+    .botoes a{
+        width: 80%;
+        -webkit-transform: skewX(0);
+        transform: skewX(0);
+    }
+
+    .botoes a p, .botoes a .btn-img{
+        -webkit-transform: skewX(0);
+        transform: skewX(0);
+    }
+
+    .ver{
+        margin-bottom: 20px;
+        margin-right: 0;
+    }
+
+    .conteudo_texto h2{
+        font-size: 3em;
     }
 }
